@@ -3,6 +3,7 @@ package main
 import (
 	"fmt" 
 	"strings"
+	"os"
 )
 
 type Movie struct {
@@ -32,6 +33,14 @@ func search_movie_catalog(movie_catalog map[string]Movie, filter string){
 
 }
 
+func get_movie_list(movie_catalog map[string]Movie){
+	var movie_list = make([]string, 0)
+	for movie := range movie_catalog{
+		movie_list = append(movie_list, movie_catalog[movie].name)
+	}
+	fmt.Println(movie_list)
+}
+
 func main() {
 	
 	var movie_catalog map[string]Movie
@@ -40,9 +49,7 @@ func main() {
 	movie1 := Movie{"name1",1,"gerne1","actor1"}
 	movie2 := Movie{"name2",2,"gerne2","actor2"}
 
-
 	add_movie(movie_catalog, movie1)
 	add_movie(movie_catalog, movie2)
 
-	search_movie_catalog(movie_catalog, "name1")
 }

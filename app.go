@@ -23,12 +23,12 @@ func search_movie_catalog(movie_catalog map[string]Movie, filter string){
 	for movie := range movie_catalog{
 		if(movie == strings.ToLower(filter)){
 			fmt.Println(movie_catalog[movie])
-			status[1] = false
+			status[0] = false
 			break
 		}
 	}
 
-	if(status[1]){fmt.Println("Movie is not available.")}
+	if(status[0]){fmt.Println("Movie is not available.")}
 
 }
 
@@ -44,5 +44,5 @@ func main() {
 	add_movie(movie_catalog, movie1)
 	add_movie(movie_catalog, movie2)
 
-
+	search_movie_catalog(movie_catalog, "name1")
 }

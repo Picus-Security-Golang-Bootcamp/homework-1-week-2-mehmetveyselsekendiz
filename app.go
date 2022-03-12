@@ -14,7 +14,7 @@ type Movie struct {
 }
 
 func add_movie(movie_catalog map[string]Movie, m Movie){
-	movie_catalog[strings.ToLower(m.name)] = m
+	movie_catalog[strings.ToLower(strings.Replace(m.name," ","-",-1))] = m
 }
 
 func search_movie_catalog(movie_catalog map[string]Movie, filter string){
@@ -46,8 +46,8 @@ func main() {
 	var movie_catalog map[string]Movie
 	movie_catalog = make(map[string]Movie)
 
-	movie1 := Movie{"name1",1,"gerne1","actor1"}
-	movie2 := Movie{"name2",2,"gerne2","actor2"}
+	movie1 := Movie{"MOVIE NAME 1",1,"gerne1","actor1"}
+	movie2 := Movie{"movie name 2",2,"gerne2","actor2"}
 
 	add_movie(movie_catalog, movie1)
 	add_movie(movie_catalog, movie2)
@@ -59,7 +59,7 @@ func main() {
 			search_movie_catalog(movie_catalog, commands[1])
 		case commands[0] == "list" :
 			get_movie_list(movie_catalog)
-		default : fmt.Println("Comment is not defined.")
+		default : fmt.Println("Command is not defined.")
 	}
 
 	//fmt.Print("Test-1: ")

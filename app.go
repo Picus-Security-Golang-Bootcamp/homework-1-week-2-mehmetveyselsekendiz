@@ -52,4 +52,18 @@ func main() {
 	add_movie(movie_catalog, movie1)
 	add_movie(movie_catalog, movie2)
 
+	commands := os.Args[1:]
+
+	switch{
+		case commands[0] == "search" :
+			search_movie_catalog(movie_catalog, commands[1])
+		case commands[0] == "list" :
+			get_movie_list(movie_catalog)
+		default : fmt.Println("Comment is not defined.")
+	}
+
+	//fmt.Print("Test-1: ")
+	//search_movie_catalog(movie_catalog, "name1")
+	//fmt.Print("Test-2: ")
+	//search_movie_catalog(movie_catalog, "name")
 }

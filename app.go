@@ -61,9 +61,4 @@ func main() {
 			get_movie_list(movie_catalog)
 		default : fmt.Println("Command is not defined.")
 	}
-
-	//fmt.Print("Test-1: ")
-	//search_movie_catalog(movie_catalog, "name1")
-	//fmt.Print("Test-2: ")
-	//search_movie_catalog(movie_catalog, "name")
 }
